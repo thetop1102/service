@@ -1,7 +1,7 @@
 ActiveAdmin.register Booking do
   filter :created_at
-  filter :user_name_cont, as: :string
-  filter :place
+  filter :user_name_cont, as: :select
+  filter :place_name_cont, as: :select
 
   scope :init
   scope :pending, default: true

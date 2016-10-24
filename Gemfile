@@ -24,6 +24,7 @@ gem "figaro"
 gem "config"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
+gem "activeadmin_addons"
 
 group :development, :test do
   gem "pry-rails"

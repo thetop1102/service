@@ -1,6 +1,6 @@
 ActiveAdmin.register Place do
   permit_params :name, :description, :cover
-  filter :name_cont
+  filter :name, as: :select
 
   index do
     column :id
