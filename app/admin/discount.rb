@@ -1,6 +1,10 @@
 ActiveAdmin.register Discount do
   permit_params :name,:percent, :description, :start_date, :end_date, :status
 
+  scope :oncoming
+  scope :happening
+  scope :finished
+
   index do
     column :id
     column :name

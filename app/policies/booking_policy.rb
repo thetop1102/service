@@ -22,4 +22,8 @@ class BookingPolicy < ApplicationPolicy
   def destroy?
     false
   end
+
+  def cancel?
+    is_owner? && record.init?
+  end
 end

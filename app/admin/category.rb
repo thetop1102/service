@@ -1,12 +1,14 @@
 ActiveAdmin.register Category do
   permit_params :name, :description, :cover
 
+  filter :name_cont
+
   index do
-    selectable_column
     column :id
-    column :name
-    column :decription
-    actions
+    column :name do |category|
+      link_to category.name, admin_category_path(category)
+    end
+    column :description
   end
 
   show do

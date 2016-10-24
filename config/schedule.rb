@@ -5,3 +5,7 @@ end
 every 6.hours do 
   rake "rating:update_tours_rating"
 end
+
+every 6.hours do
+  rake "payment:create_daily_payment_report"
+end

@@ -1,6 +1,8 @@
 class Payment < ApplicationRecord
-  belongs_to :booking
-  belongs_to :bank_account
+  belongs_to :booking, optional: true
+  belongs_to :bank_account, optional: true
+
+  enum classify: [:normal, :daily]
 
   def paypal_url return_path
     values = {

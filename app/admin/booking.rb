@@ -1,7 +1,13 @@
 ActiveAdmin.register Booking do
   filter :created_at
-  filter :user
+  filter :user_name_cont, as: :string
   filter :place
+
+  scope :init
+  scope :pending, default: true
+  scope :accepted
+  scope :ignored
+  scope :canceled
 
   actions :index, :update
 
