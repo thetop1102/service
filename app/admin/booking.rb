@@ -1,7 +1,9 @@
 ActiveAdmin.register Booking do
+  includes :tour, :user
+
   filter :created_at
-  filter :user_name_cont, as: :select
-  filter :place_name_cont, as: :select
+  filter :user, as: :select
+  filter :place
 
   scope :init
   scope :pending, default: true
@@ -14,6 +16,12 @@ ActiveAdmin.register Booking do
   index do
     selectable_column
     id_column
+    column :user do |booking|
+      booking.user.name
+    end
+    column :place do |booking|
+      booking.tour.place
+    end
     column :status
     column :total_price
     column :start_date

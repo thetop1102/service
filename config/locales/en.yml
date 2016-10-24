@@ -75,6 +75,10 @@ en:
   tour:
     not_found: "tour not found"
     price: "Price "
+  model_validate:
+    start_date: "Start date need to greater than now"
+    end_date_start: "End date mus be greate than start date"
+
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
