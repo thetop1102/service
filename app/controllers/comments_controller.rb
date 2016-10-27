@@ -12,13 +12,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    #do destroy
-  end
-
   private
   def comment_params
-    params.require(:comment).permit :content
+    params.require(:comment).permit :content, :parent_id
   end
 
   def find_commentable

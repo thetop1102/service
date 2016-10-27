@@ -6,13 +6,18 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words comment.created_at %> ago.
   </span>
-  <span class="comment">
+  <div class="sub-comment">
       <% if comment.sub_comments.any?%>
         <%= render comment.sub_comments %>
       <% end %>
-  </span>
-  <span class="reply-comment-form">
-    <%= render partial: "comments/reply_form", locals: {commentable: review, parent_id: comment.id, comment: comment, sub_comment: @comment} %>
-  </span>
+    <% unless comment.parent_id %>
+      <%= link_to "reply", "javascript:void(0)", class: "reply" %>
+      <span class="reply-comment-form">
+        <%= render partial: "comments/reply_form",
+          locals: {commentable: comment.commentable,
+          parent_id: comment.id, comment: comment, sub_comment: @comment} %>
+      </span>
+    <% end %>
+  </div>
 </li>
 

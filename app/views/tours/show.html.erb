@@ -27,3 +27,9 @@
     </div>
   </div>
 </div>
+<%= render partial: "comments/form", locals: {commentable: @tour} %>
+<div class="commentsd">
+  <% if @comments.any? %>
+    <%= render @comments, commentable: @tour %>
+  <% end %>
+</div>

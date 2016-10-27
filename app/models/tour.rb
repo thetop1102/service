@@ -5,4 +5,5 @@ class Tour < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 end
