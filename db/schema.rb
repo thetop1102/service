@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.string   "name"
     t.text     "description", limit: 65535
     t.string   "image"
+    t.string   "cover"
     t.integer  "viewer",                    default: 0
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false

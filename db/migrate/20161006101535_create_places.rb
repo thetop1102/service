@@ -4,6 +4,7 @@ class CreatePlaces < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.string :image
+      t.string :cover
       t.integer :viewer, default: 0
 
       t.timestamps

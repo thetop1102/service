@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   before_action :load_places, only: [:new, :edit]
   before_action(except: [:new, :create, :index]) {find_object "review", "id"}

@@ -1,5 +1,5 @@
 ActiveAdmin.register Place do
-  permit_params :name, :description, :cover
+  permit_params :name, :description, :image, :cover
 
   index do
     column :id
@@ -26,6 +26,7 @@ ActiveAdmin.register Place do
       f.input :name
       f.input :description, as: :ckeditor
       f.input :image, as: :url
+      f.input :cover, as: :url
     end
     f.actions
     end

@@ -14,11 +14,13 @@
                 <%= t :by %><%= @review.user.name %></h4></li>
             </div>
             <div class="col-md-2">
-              <%= link_to t(:edit), edit_review_path(@review),
-                class: "btn btn-default btn-xs glyphicon glyphicon-edit" %>
-              <%= link_to t(:delete), review_path(@review),
-                method: :delete, data: {confirm: t(:delete_confirm)},
-                class: "btn btn-default btn-xs glyphicon glyphicon-trash" %>
+              <% if policy(@review).destroy? %>
+                <%= link_to t(:edit), edit_review_path(@review),
+                  class: "btn btn-default btn-xs glyphicon glyphicon-edit" %>
+                <%= link_to t(:delete), review_path(@review),
+                  method: :delete, data: {confirm: t(:delete_confirm)},
+                  class: "btn btn-default btn-xs glyphicon glyphicon-trash" %>
+              <% end %>
             </div>
           </div>
         </center>

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <%= simple_form_for [@tour, @booking] do |f| %>
-    <%= f.input :start_date, as:  :string,input_html: {class: :"datepicker"} %>
+    <%= f.input :start_date, as: :string, input_html: {class: :"datepicker"} %>
     <%= f.submit %>
   <% end %>
 <% end %>
