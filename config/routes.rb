@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
-  resources :reviews
+  resources :reviews do
+    resources :comments
+  end
   resources :categories, only: :show
   ActiveAdmin.routes self
   get "/static_pages/*page", to: "static_pages#show"
@@ -9,7 +11,8 @@ Rails.application.routes.draw do
     controllers: {omniauth_callbacks: :"omniauth_callbacks#create" }
 
   resources :tours, only: [:index, :show] do
-    resources :bookings 
+    resources :comments
+    resources :bookings
     post "bookings/:id" => "bookings#show"
   end
   resources :places, only: [:index, :show]

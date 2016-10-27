@@ -1,0 +1,18 @@
+<li id="comment-<%= comment.id %>">
+  <span class="user">
+    <%= comment.user.email %>:
+    <%= comment.content %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words comment.created_at %> ago.
+  </span>
+  <span class="comment">
+      <% if comment.sub_comments.any?%>
+        <%= render comment.sub_comments %>
+      <% end %>
+  </span>
+  <span class="reply-comment-form">
+    <%= render partial: "comments/reply_form", locals: {commentable: review, parent_id: comment.id, comment: comment, sub_comment: @comment} %>
+  </span>
+</li>
+

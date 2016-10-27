@@ -32,3 +32,9 @@
     </div>
   </div>
 </div>
+<%= render partial: "comments/form", locals: {commentable: @review} %>
+<div class="commentsd">
+  <% if @comments.any? %>
+    <%= render @comments, review: @review %>
+  <% end %>
+</div>

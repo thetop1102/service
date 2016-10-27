@@ -1,0 +1,6 @@
+<span class="comment-form">
+  <%= form_for [commentable, @comment], remote: true do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit "Comment" %>
+  <% end %>
+</span>

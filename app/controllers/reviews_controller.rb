@@ -13,6 +13,8 @@ class ReviewsController < ApplicationController
     if @notification
       @notification.update_attributes seen: true;
     end
+    @comment = current_user.comments.build
+    @comments = @review.comments
   end
 
   def new

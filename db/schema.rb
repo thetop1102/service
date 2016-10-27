@@ -75,13 +75,14 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",           limit: 65535
-    t.integer  "parent_comment_id"
+    t.text     "content",          limit: 65535
+    t.integer  "parent_id"
     t.integer  "user_id"
-    t.integer  "review_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.index ["review_id"], name: "index_comments_on_review_id", using: :btree
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
@@ -185,7 +186,6 @@ ActiveRecord::Schema.define(version: 20161011195909) do
   add_foreign_key "bookings", "discounts"
   add_foreign_key "bookings", "tours"
   add_foreign_key "bookings", "users"
-  add_foreign_key "comments", "reviews"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "payments", "bookings"
