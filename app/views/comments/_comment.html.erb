@@ -25,6 +25,7 @@
       <%= comment.likes.size %>
     </span>
     <% unless comment.parent_id %>
+      <i class="glyphicon glyphicon-repeat"> </i>
       <%= link_to "reply", "javascript:void(0)", class: "reply" %>
       <span class="reply-comment-form">
         <%= render partial: "comments/reply_form",

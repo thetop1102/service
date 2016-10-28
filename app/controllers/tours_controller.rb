@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
   skip_before_action :authenticate_user!, except: :show
+
   before_action(only: :show) {find_object "tour", "id" }
 
   def index

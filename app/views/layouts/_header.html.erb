@@ -6,7 +6,7 @@
           <%= image_tag "logo1.png" %>
         <% end %>
         <%= form_tag tours_path,
-          class: "navbar-form navbar-left", method: "GET", role: "search" do %>
+          class: "navbar-form navbar-right", style: "margin-right: 30%", method: "GET", role: "search" do %>
           <%= text_field_tag :search_title,
             params[:search_title], placeholder: t("search_tour") %>
           <button class="btn btn-default">
