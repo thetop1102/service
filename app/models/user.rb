@@ -23,4 +23,9 @@ class User < ApplicationRecord
       user
     end
   end
+
+  def liked? target_object
+    likes.where(likeable_type: target_object.class,
+      likeable_id: target_object.id).exists?
+  end
 end

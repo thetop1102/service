@@ -30,11 +30,21 @@
         </div>
       </div>
     </div>
+   <div id="like-review-<%= @review.id %>">
+      <% if current_user.liked? @review %>
+        <%= render "likes/unlike", likeable_type: "review", likeable_id: @review.id %>
+      <% else %>
+        <%= render "likes/like", likeable_type: "review", likeable_id: @review.id %>
+      <% end %>
+    </div>
+    <span id="like-review-count-<%= @review.id %>">
+      <%= @review.likes.size %>
+    </span> 
+    <%= render partial: "comments/form", locals: {commentable: @review} %>
+    <div class="commentsd">
+      <% if @comments.any? %>
+        <%= render @comments, commentable: @review %>
+      <% end %>
+   </div>
   </div>
-</div>
-<%= render partial: "comments/form", locals: {commentable: @review} %>
-<div class="commentsd">
-  <% if @comments.any? %>
-    <%= render @comments, commentable: @review %>
-  <% end %>
 </div>

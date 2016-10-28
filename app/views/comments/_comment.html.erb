@@ -3,6 +3,9 @@
     <%= comment.user.email %>:
     <%= comment.content %>
   </span>
+
+    
+
   <span class="timestamp">
     Posted <%= time_ago_in_words comment.created_at %> ago.
   </span>
@@ -10,6 +13,18 @@
       <% if comment.sub_comments.any?%>
         <%= render comment.sub_comments %>
       <% end %>
+
+    <span id="like-comment-<%= comment.id %>">
+      <% if current_user.liked? comment %>
+        <%= render "likes/unlike", likeable_type: "comment", likeable_id: comment.id %>
+      <% else %>
+        <%= render "likes/like", likeable_type: "comment", likeable_id: comment.id %>
+      <% end %>
+    </span>
+
+    <span id="like-comment-count-<<%= comment.id %>>">
+      <%= comment.likes.size %>
+    </span>
     <% unless comment.parent_id %>
       <%= link_to "reply", "javascript:void(0)", class: "reply" %>
       <span class="reply-comment-form">
