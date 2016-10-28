@@ -5,7 +5,7 @@ class CreateActivities < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.references :activable, polymorphic: true
       t.integer :tag_user_id
-      t.boolean :seen, default: 0
+      t.boolean :seen, default: false
 
       t.timestamps
     end

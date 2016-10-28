@@ -1,0 +1,7 @@
+<% if comment.parent_comment.nil? %>
+  <%= form_for [commentable, sub_comment], remote: true do |f|%>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :parent_id, value: parent_id %>
+    <%= f.submit "Comment" %>
+  <% end %>
+<% end %>

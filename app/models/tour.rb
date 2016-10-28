@@ -5,6 +5,7 @@ class Tour < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   scope :filter_title, -> search_title{
     where("tours.name LIKE '%#{search_title}%'")}

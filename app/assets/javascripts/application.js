@@ -41,3 +41,7 @@ $(document).ready(function() {
       $(this).children(".messages").fadeToggle(300);
     }
   });
+
+$(".reply").click(function(){
+  var a = $(this).closest(".sub-comment").find(".reply-comment-form").toggle();
+});

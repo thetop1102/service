@@ -1,13 +1,15 @@
 class ToursController < ApplicationController
-  skip_before_action :authenticate_user!
-  before_action(only: :show) {find_object "tour", "id"}
+  skip_before_action :authenticate_user!, except: :show
+  before_action(only: :show) {find_object "tour", "id" }
 
   def index
     @tours = tours_search
   end
 
   def show
-    @booking = @tour.bookings.build 
+    @booking = @tour.bookings.build
+    @comment = current_user.comments.build
+    @comments = @tour.comments
   end
 
   private
