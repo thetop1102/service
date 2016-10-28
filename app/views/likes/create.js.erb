@@ -1,0 +1,4 @@
+$("#like-<%= @like.likeable_type %>-<%= @like.likeable_id %>").html("<%= j render "likes/unlike",
+   likeable_type: @like.likeable_type, likeable_id: @like.likeable_id %>");
+
+$("#like-<%= @like.likeable_type %>-count-<%= @like.likeable_id %>").html('<%= @like.likeable.likes.size %>')

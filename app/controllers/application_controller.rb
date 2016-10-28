@@ -36,10 +36,12 @@ class ApplicationController < ActionController::Base
       @notification = Activity.find_by id: params[:notification_id]
     else
       var_name = "@#{args[0]}"
-      unless instance_variable_set(var_name,
+      instance_variable_set(var_name,
         args[0].capitalize.constantize.find_by(id: params[args[1].to_sym]))
+      unless instance_variable_get var_name
         redirect_to root_path
       end
+      instance_variable_get var_name
     end
   end
 

@@ -32,15 +32,24 @@
         </div>
       </div>
     </div>
+   <div id="like-review-<%= @review.id %>">
+      <% if current_user.liked? @review %>
+        <%= render "likes/unlike", likeable_type: "review", likeable_id: @review.id %>
+      <% else %>
+        <%= render "likes/like", likeable_type: "review", likeable_id: @review.id %>
+      <% end %>
+    </div>
+    <span id="like-review-count-<%= @review.id %>">
+      <%= @review.likes.size %>
+    </span>
+    <div class="comment wow bounceInRight" data-wow-delay="0.3s">
+      <h3>Comments</h3>
+      <%= render partial: "comments/form", locals: {commentable: @review} %>
+      <div class="commentsd">
+        <% if @comments.any? %>
+          <%= render @comments, commentable: @review %>
+        <% end %>
+    </div>
+    </div>
   </div>
 </div>
-<div class="comment wow bounceInRight" data-wow-delay="0.3s">
-  <h3>Comments</h3>
-  <%= render partial: "comments/form", locals: {commentable: @review} %>
-  <div class="commentsd">
-    <% if @comments.any? %>
-      <%= render @comments, commentable: @review %>
-    <% end %>
-</div>
-</div>
-

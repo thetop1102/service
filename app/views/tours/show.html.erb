@@ -38,9 +38,12 @@
     </div>
   </div>
 </div>
-<%= render partial: "comments/form", locals: {commentable: @tour} %>
-<div class="commentsd">
-  <% if @comments.any? %>
-    <%= render @comments, commentable: @tour %>
-  <% end %>
+<div class="comment wow bounceInRight" data-wow-delay="0.3s">
+  <h3>Comments</h3>
+  <%= render partial: "comments/form", locals: {commentable: @tour} %>
+  <div class="commentsd">
+    <% if @comments.any? %>
+      <%= render @comments, commentable: @tour %>
+    <% end %>
+  </div>
 </div>
