@@ -1,0 +1,4 @@
+<%= link_to review_path(activity.activable.id, notification_id: activity.id),
+  class: "message" do %>
+  <%= t "notifi", user_name: activity.user.name %>
+<% end %>

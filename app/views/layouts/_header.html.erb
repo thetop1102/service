@@ -5,6 +5,13 @@
         <%= link_to root_path do %>
           <%= image_tag "logo1.png" %>
         <% end %>
+        <%= form_tag tours_path,
+          class: "navbar-form navbar-left", method: "GET", role: "search" do %>
+          <%= text_field_tag :search_title,
+            params[:search_title], placeholder: t("search_tour") %>
+          <button class="btn btn-default">
+            <i class="glyphicon glyphicon-search"></i></button>
+        <% end %>
       </div>
       <div class="top-navg">
         <span class="menu"><%= image_tag "ban1.png" %></span>

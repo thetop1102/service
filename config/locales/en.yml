@@ -301,3 +301,4 @@ en:
   wecome_tour: "Welcome To Tour"
   wecome_place: "Welcome To Place"
   notifi: "%{user_name} commented on your post in link"
+  search_tour: "Search Tour..."

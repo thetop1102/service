@@ -3,10 +3,15 @@ class ToursController < ApplicationController
   before_action(only: :show) {find_object "tour", "id"}
 
   def index
-    @tours = Tour.all
+    @tours = tours_search
   end
 
   def show
     @booking = @tour.bookings.build 
+  end
+
+  private
+  def tours_search
+    Tour.filter_title params[:search_title]
   end
 end

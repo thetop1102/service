@@ -10610,7 +10610,6 @@ a:hover {
   display: inline-block;
 }
 .header {
-  padding: 1.5em 0em;
   background:rgba(0, 0, 0, 0.88);
 }
 span.menu {
@@ -13830,12 +13829,10 @@ html {
 }
 
 .notifications .toggle:before {
-  top:15px;
   height:30px;
 }
 
 .notifications .toggle:after {
-  top:55px;
   height:10px;
 }
 

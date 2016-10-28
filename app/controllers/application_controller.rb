@@ -15,12 +15,13 @@ class ApplicationController < ActionController::Base
   end
 
   def load_places
-    @places_select = Place.all.collect{|place| [place.name, place.id]}
+    @places_select = Place.all.collect {|place| [place.name, place.id]}
   end
 
   def load_notifications
     if current_user
-      @activities = Activity.my_activity current_user.id
+      @activities = Activity.order(created_at: :desc).
+        my_activity current_user.id
       @count_activities = @activities.not_seen.size
     end
   end
