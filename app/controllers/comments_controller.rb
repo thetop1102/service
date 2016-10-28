@@ -3,6 +3,10 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.build comment_params
     @commentable = find_commentable
     @commentable.comments << @comment
+    unless @comment.commentable.user_id == current_user.id
+      @activity = @comment.activities.new tag_user_id: @comment.commentable.user_id,
+        user_id: current_user.id
+    end
     if @comment.save
       respond_to do |format|
         format.js

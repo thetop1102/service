@@ -1,23 +1,38 @@
-<li id="comment-<%= comment.id %>">
-  <span class="user">
-    <%= comment.user.email %>:
-    <%= comment.content %>
-  </span>
-  <span class="timestamp">
+<% unless comment.parent_id %>
+  <div class="media wow fadeInLeft animated">
+<% else %>
+  <div class="media media-1 wow fadeInUp animated">
+<% end %>
+<div class="code-in">
+  <li id="comment-<%= comment.id %>">
+    <p class="smith"><a><%= comment.user.name %></a></p>
+    <span class="timestamp">
     Posted <%= time_ago_in_words comment.created_at %> ago.
   </span>
-  <div class="sub-comment">
-      <% if comment.sub_comments.any?%>
+    <div class="sub-comment">
+      <% unless comment.sub_comments.any? %>
         <%= render comment.sub_comments %>
       <% end %>
-    <% unless comment.parent_id %>
-      <%= link_to "reply", "javascript:void(0)", class: "reply" %>
-      <span class="reply-comment-form">
+      <% unless comment.parent_id %>
+        <i class="glyphicon glyphicon-repeat"> </i>
+        <%= link_to "reply", "javascript:void(0)", class: "reply" %>
+        <span class="reply-comment-form">
         <%= render partial: "comments/reply_form",
           locals: {commentable: comment.commentable,
-          parent_id: comment.id, comment: comment, sub_comment: @comment} %>
+            parent_id: comment.id, comment: comment, sub_comment: @comment} %>
       </span>
-    <% end %>
-  </div>
-</li>
-
+      <% end %>
+      <div class="clearfix"></div>
+    </div>
+  </li>
+</div>
+<div class="media-left">
+  <a href="#">
+    <%= image_tag "user.png" %>
+  </a>
+</div>
+<div class="media-body">
+  <p><%= comment.content %></p>
+</div>
+</div>
+</div>

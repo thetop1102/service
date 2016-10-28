@@ -1,4 +1,10 @@
-<%= link_to review_path(activity.activable.id, notification_id: activity.id),
+<%= link_to review_path(
+  if activity.activable_type == "Review"
+    activity.activable.id
+  else
+    activity.activable.commentable
+  end, notification_id: activity.id
+),
   class: "message" do %>
   <%= t "notifi", user_name: activity.user.name %>
 <% end %>
