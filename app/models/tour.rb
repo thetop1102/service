@@ -11,4 +11,7 @@ class Tour < ApplicationRecord
     where("tours.name LIKE '%#{search_title}%'")}
 
   ratyrate_rateable "quality"
+
+  validates :name, presence: true, length: {minimum: 6}
+  validates :description, presence: true
 end

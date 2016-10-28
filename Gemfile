@@ -25,6 +25,7 @@ gem "config"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "ratyrate"
+gem "activeadmin_addons"
 
 group :development, :test do
   gem "pry-rails"

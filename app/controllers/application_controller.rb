@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_notifications
-    if current_user
+    if current_user && !current_user.is_admin?
       @activities = Activity.order(created_at: :desc).
         my_activity current_user.id
       @count_activities = @activities.not_seen.size

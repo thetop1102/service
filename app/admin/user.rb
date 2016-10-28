@@ -1,16 +1,15 @@
 ActiveAdmin.register User do
-  filter :name
+  filter :name_cont
   filter :created_at
   actions :index, :show, :destroy
 
   index do
-    selectable_column
     id_column
     column :name
-    column :email
-    column :is_admin
+    column :email do |user|
+      link_to user.email, admin_user_path(user)
+    end
     column :created_at
-    actions
   end
 
   controller do

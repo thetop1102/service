@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20161028053362) do
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",        limit: 65535
     t.integer  "amount"
+    t.integer  "classify",                     default: 0
     t.integer  "booking_id"
     t.datetime "purchased_at"
     t.string   "transaction_id"
