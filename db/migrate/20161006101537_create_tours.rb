@@ -4,7 +4,7 @@ class CreateTours < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :duration
       t.integer :price
-      t.float :rate
+      t.float :rating
       t.text :description
       t.references :discount, foreign_key: true
       t.references :place, foreign_key: true

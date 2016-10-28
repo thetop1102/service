@@ -9,4 +9,6 @@ class Tour < ApplicationRecord
 
   scope :filter_title, -> search_title{
     where("tours.name LIKE '%#{search_title}%'")}
+
+  ratyrate_rateable "quality"
 end

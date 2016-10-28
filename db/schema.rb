@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011195909) do
+ActiveRecord::Schema.define(version: 20161028053362) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "actionType"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.datetime "updated_at",                     null: false
     t.index ["activable_type", "activable_id"], name: "index_activities_on_activable_type_and_activable_id", using: :btree
     t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
+  end
+
+  create_table "average_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "avg",           limit: 24, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "bank_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -108,6 +117,14 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+  create_table "overall_averages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "overall_avg",   limit: 24, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",        limit: 65535
     t.integer  "amount"
@@ -128,6 +145,29 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.integer  "viewer",                    default: 0
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "rater_id"
+    t.string   "rateable_type"
+    t.integer  "rateable_id"
+    t.float    "stars",         limit: 24, null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["rateable_id", "rateable_type"], name: "index_rates_on_rateable_id_and_rateable_type", using: :btree
+    t.index ["rater_id"], name: "index_rates_on_rater_id", using: :btree
+  end
+
+  create_table "rating_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "cacheable_type"
+    t.integer  "cacheable_id"
+    t.float    "avg",            limit: 24, null: false
+    t.integer  "qty",                       null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
   end
 
   create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -157,7 +197,7 @@ ActiveRecord::Schema.define(version: 20161011195909) do
     t.string   "name"
     t.string   "duration"
     t.integer  "price"
-    t.float    "rate",        limit: 24
+    t.float    "rating",      limit: 24
     t.text     "description", limit: 65535
     t.integer  "discount_id"
     t.integer  "place_id"

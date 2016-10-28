@@ -28,4 +28,5 @@ class User < ApplicationRecord
     likes.where(likeable_type: target_object.class,
       likeable_id: target_object.id).exists?
   end
+  ratyrate_rater
 end

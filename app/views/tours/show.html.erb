@@ -18,6 +18,8 @@
                     </i><%= @tour.price %><%= t :money %>
                   </li>
                 </h3>
+                <%= rating_for @tour, "quality",
+                  star_path: "/images/ratyrate" %>
                 <% if policy(@booking).new? %>
                   <div>
                     <%= render "bookings/new" %>
