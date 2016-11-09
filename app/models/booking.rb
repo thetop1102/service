@@ -26,7 +26,9 @@ class Booking < ApplicationRecord
   end
 
   def start_date_validate
-    if start_date < Date.current
+    if start_date.nil?
+      errors.add :start_date, "Startdate not presence"
+    elsif start_date < Date.current
       errors.add :start_date, I18n.t("model_validate.start_date")
     end
   end

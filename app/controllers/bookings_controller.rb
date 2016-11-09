@@ -10,7 +10,8 @@ class BookingsController < ApplicationController
       flash.now[:success] = t "booking.created"
       redirect_to [@tour, @booking]
     else
-      flash.now[:danger] = t "booking.created_error"
+      flash[:danger] = t "booking.created_error"
+      flash[:danger] = @booking.errors.full_messages[0]
       redirect_to :back
     end
   end

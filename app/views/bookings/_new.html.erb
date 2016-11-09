@@ -1,7 +1,6 @@
 <% if user_signed_in? %>
-  <%= simple_form_for [@tour, @booking] do |f| %>
-    <center><%= f.input :start_date, as: :string,
-      input_html: {class: :"datepicker"} %></center>
-    <%= f.submit %>
+  <%= semantic_form_for [@tour, @booking] do |f| %>
+    <center><%= f.input :start_date, as: :date_picker %></center>
+    <%= f.action :submit, as: :button %>
   <% end %>
 <% end %>
