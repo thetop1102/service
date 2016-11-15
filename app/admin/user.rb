@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  filter :name_cont
+  filter :email_cont
   filter :created_at
   actions :index, :show, :destroy
 

@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   resources :tours, only: [:index, :show] do
     resources :comments
     resources :bookings
-    post "bookings/:id" => "bookings#show"
   end
   resources :places, only: [:index, :show]
   resources :likes, only: [:create, :destroy]

@@ -17,7 +17,7 @@ ActiveAdmin.register Booking do
     selectable_column
     id_column
     column :user do |booking|
-      booking.user.name
+      booking.user.email
     end
     column :place do |booking|
       booking.tour.place
@@ -40,5 +40,6 @@ ActiveAdmin.register Booking do
     Booking.find(ids).each do |booking|
       booking.ignored!
     end
+    redirect_to admin_bookings_path
   end
 end
