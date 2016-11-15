@@ -1,5 +1,64 @@
-<%= @booking.user.name %>
-<%= @booking.tour.name %>
-<%= @booking.created_at %>
-<%= link_to t("booking.transaction"), tour_booking_path(@tour, @booking,
-  user_payment: "user_payment"), method: :patch %>
+<% unless @booking.payment %>
+  <%= link_to t("booking.transaction"), tour_booking_path(@tour, @booking,
+    user_payment: "user_payment"), method: :patch, class: "btn btn-success" %>
+<% end %>
+
+
+<table style="width:100%">
+  <caption>Booking detail</caption>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>User Name</td>
+    <td>
+      <%= @booking.user.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>Tour Name</td>
+    <td>
+      <%= @booking.tour.name %>
+    </td>
+  </tr>
+  <tr>
+    <td>Tour Price</td>
+    <td>
+      <%= @booking.tour.price %>
+    </td>
+  </tr>
+  <tr>
+    <td>Discount</td>
+    <td>
+      <% if @booking.discount %>
+        <%= @booking.discount.percent %>
+      <% else %>
+        0
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>Total Price</td>
+    <td>
+      <%= @booking.total_price %>
+    </td>
+  </tr>
+  <tr>
+    <td>Created At</td>
+    <td>
+      <%= @booking.created_at %>
+    </td>
+  </tr>
+  <tr>
+    <td> Payment Status</td>
+    <td>
+      <% if @booking.payment %>
+        <%= @booking.payment.status %>
+      <% else %>
+        Not purchase
+      <% end %>
+    </td>
+  </tr>
+  </tr>
+</table>

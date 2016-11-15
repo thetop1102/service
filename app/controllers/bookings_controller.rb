@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   before_action(only: :create) {find_object "tour", "tour_id"}
   before_action(except: :create) {find_object "tour_booking"}
-  before_action :update, only: :show
 
   def create
     @booking = @tour.bookings.new booking_params
@@ -17,20 +16,19 @@ class BookingsController < ApplicationController
   end
 
   def show
-    authorize @booking
   end
 
   def update
     authorize @booking
     if params[:user_payment]
       payment = @booking.create_payment amount: @booking.total_price
-      redirect_to payment.paypal_url [@tour, @booking]
-    elsif paypal_params[:payment_status] == "Completed"
-      payment = @booking.payment
-      payment.update_attributes status: "completed", 
+      if payment.update_attributes status: "completed", 
         transaction_id: paypal_params[:txn_id], purchased_at: Time.now
-      @booking.pending!
+        @booking.pending!
+      end
     end
+    flash.now[:success] = "Booking are pending to Admin"
+    redirect_to [@tour, @booking]
   end
 
   private

@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :rememberable,
-    :validatable, :omniauthable, :omniauth_providers => [:facebook]
+    :validatable, :omniauthable, :omniauth_providers => [:facebook],password_length: 6..15
 
   has_many :bank_accounts, dependent: :destroy
   has_many :bookings, dependent: :destroy
