@@ -20,6 +20,7 @@
             <li><%= link_to t("tour"), tours_path %></li>
             <li><%= link_to t("place"), places_path %></li>
             <li><%= link_to t("review"), reviews_path %></li>
+            <li><%= link_to "My Bookings", mybookings_path %></li>
             <% if user_signed_in? %>
               <li><%= link_to t("post"), new_review_path %></li>
               <li>

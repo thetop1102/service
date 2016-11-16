@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
   resources :places, only: [:index, :show]
   resources :likes, only: [:create, :destroy]
+  resources :mybookings, only: :index
 end
