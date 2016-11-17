@@ -15,7 +15,7 @@ class Booking < ApplicationRecord
   private
   def apply_discount
       if tour.discount && tour.discount.happening?
-        self.total_price = tour.price - tour.price * discount
+        self.total_price = tour.price - tour.price * discount.percent/100
         self.discount_id = discount.id
       else
         self.total_price = tour.price
