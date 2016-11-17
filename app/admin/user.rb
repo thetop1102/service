@@ -5,7 +5,6 @@ ActiveAdmin.register User do
 
   index do
     id_column
-    column :name
     column :email do |user|
       link_to user.email, admin_user_path(user)
     end
