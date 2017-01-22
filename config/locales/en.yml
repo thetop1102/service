@@ -1,7 +1,7 @@
 en:
   layouts:
     header:
-      title: Booking Tour
+      title: Booking Service
       sr_only: Toggle navigation
       navbar_text: Already have an account?
       navbar_signed_in: Signed in as
@@ -18,13 +18,13 @@ en:
       new_here: New here ?
       signup: Join Us
     footer:
-      content: Framgia Booking Tour
+      content: Booking Service
   static_pages:
     home:
       title: Home
     contact:
       title: Contact
-      team: Booking Tour Team Tech Support
+      team: Booking Service Team Tech Support
       address: "Address : "
       address_at: "434 Tran Khat Chan, Hai Ba Trung, Ha Noi"
       phone: "Phone : "
@@ -73,7 +73,7 @@ en:
   category:
     not_found: "category not found"
   tour:
-    not_found: "tour not found"
+    not_found: "Service not found"
     price: "Price "
   model_validate:
     start_date: "Start date need to greater than now"
@@ -294,15 +294,15 @@ en:
       block: "List"
       grid: "Grid"
       blog: "Blog"
-  footer: "Framgia Booking Tour"
+  footer: "Booking Service"
   review: "Review"
-  tour: "Tour"
+  tour: "Service"
   hours: Posted %{hour} ago
   what: "What we do"
   wecome1: "Welcome To Our Travel"
   wecome2: "The Best Way To Be Lost"
   visit_place: "Visit"
-  wecome_tour: "Welcome To Tour"
+  wecome_tour: "Welcome To Service"
   wecome_place: "Welcome To Place"
   notifi: "%{user_name} commented on your post in link"
-  search_tour: "Search Tour..."
+  search_tour: "Search Service..."

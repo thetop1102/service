@@ -1,14 +1,14 @@
 source "https://rubygems.org"
 
-gem "rails", "~> 5.0.0"
-gem "puma", "~> 3.0"
-gem "sass-rails", "~> 5.0"
-gem "uglifier", ">= 1.3.0"
-gem "coffee-rails", "~> 4.2"
+gem "rails"
+gem "puma"
+gem "sass-rails"
+gem "uglifier"
+gem "coffee-rails"
 gem "jquery-rails"
-gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.5"
-gem "bootstrap-sass", "~> 3.3", ">= 3.3.7"
+gem "turbolinks"
+gem "jbuilder"
+gem "bootstrap-sass"
 gem "devise"
 gem "pundit"
 gem "simple_form"
@@ -30,18 +30,18 @@ gem "activeadmin_addons"
 group :development, :test do
   gem "pry-rails"
   gem "pry-byebug"
-  gem "mysql2", ">= 0.3.18", "< 0.5"
+  gem "mysql2"
 end
 
 group :development do
   gem "web-console"
-  gem "listen", "~> 3.0.5"
+  gem "listen"
   gem "spring"
-  gem "spring-watcher-listen", "~> 2.0.0"
+  gem "spring-watcher-listen"
 end
 
 group :production do
-  gem "pg", "0.18.4"
+  gem "pg"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

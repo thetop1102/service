@@ -1,4 +1,5 @@
 ActiveAdmin.register Tour do
+  menu label: "Services"
   permit_params :name, :duration, :price, :place_id, :category_id, :description
   includes :category, :place, :discount
   filter :name_cont
