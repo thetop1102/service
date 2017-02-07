@@ -22,6 +22,7 @@
 //= require jquery.min
 //= require jquery.raty
 //= require ratyrate
+//= require init_ckeditor
 
 $('span.menu').click(function() {
   $('ul.res').slideToggle( 300, function() {
